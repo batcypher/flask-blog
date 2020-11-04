@@ -1,16 +1,9 @@
-FROM python:3
+FROM python:3.6.1-alpine
 
-ENV PYTHONBUFFERED 1
+WORKDIR /project
 
-WORKDIR /app
-
-ADD . /app
-
-COPY ./requirements.txt /app/requirements.txt
+ADD . /project
 
 RUN pip install -r requirements.txt
 
-COPY . /app
-
-ENTRYPOINT ["python"]
-CMD ["run.py"]
+CMD ["python","run.py"]
