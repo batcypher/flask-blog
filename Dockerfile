@@ -1,9 +1,17 @@
-FROM python:3.6.1-alpine
+FROM ubuntu:16.04
 
-WORKDIR /project
+RUN apt-get update -y && \
+    apt-get install -y python-pip python-dev
 
-ADD . /project
+# We copy just the requirements.txt first to leverage Docker cache
+COPY ./requirements.txt /app/requirements.txt
+
+WORKDIR /app
 
 RUN pip install -r requirements.txt
 
-CMD ["python","run.py"]
+COPY . /app
+
+ENTRYPOINT [ "python" ]
+
+CMD [ "run.py" ]
