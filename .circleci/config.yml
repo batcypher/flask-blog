@@ -7,9 +7,7 @@ jobs:
       - image: "circleci/python:3.6.4"
     steps:
       - checkout
-      - run: python3 -m venv venv 
-             . venv/bin/activate 
-             pip install -r requirements.txt
+      - run: pip install -r requirements.txt
       - run: python run.py
   test:
     working_directory: ~/circleci-python
