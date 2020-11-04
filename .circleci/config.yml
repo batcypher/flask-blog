@@ -7,6 +7,7 @@ jobs:
       - image: "circleci/python:3.6.4"
     steps:
       - checkout
+      - run: pip install --upgrade pip
       - run: pip install -r .circleci/requirements.txt
       - run: pip install lazy-object-proxy 
       - run: python run.py
