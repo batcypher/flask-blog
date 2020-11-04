@@ -14,6 +14,7 @@ app.config.from_object(Config)
 app.config['SECRET_KEY'] = '64529050a317171fa534714b75b55b03'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
 # otherwise use config.from_object to get environment vars
+# set env vars for email_user and email_pass
 
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
